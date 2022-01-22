@@ -1,0 +1,24 @@
+Greenscreen usage hints:
+
+1. Due to its eyesore nature, it cannot be crafted, nor found.
+   It is only found in the creative menu.
+
+2. Don't type "Colour screen (#HEX)" when doing node operations.
+   Instead, opt for the more easily remembered "greenscreen:colourscreen".
+
+3. Please be careful when editing scenario.
+   The nodes are dug instantly, as to make building and correcting easier.
+
+4. They always glow!
+   This gives you 100% luminosity when around the nodes, thus maintaining the
+   original colour at all times, even at night.
+
+5. Use it in showoff screenshot for mods!
+   This, using some editing, can make for some professional looking screenshots.
+   Examples: http://i.imgur.com/8eolKcq.png and http://i.imgur.com/LMRhKy7.png
+
+6. It's not just a transparent screen!
+   You can use the white nodes to make lights or the black ones to make endless pits.
+   Or, you can use them to make surreal looking maps, maybe even the Rainbow Road!
+
+7. Have fun!
