@@ -24,8 +24,6 @@ if minetest.global_exists("i3") then
 		end
 	end
 
-	minetest.log(dump(greenscreen.compress_colours))
-
 	i3.compress("greenscreen:greenscreen", {
 		replace = "greenscreen:greenscreen",
 		by = greenscreen.compress_colours
