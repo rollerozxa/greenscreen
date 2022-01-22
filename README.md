@@ -1,9 +1,9 @@
 # Minetest Greenscreen Mod
-Mod that adds various brightly-coloured and glowing nodes intended to be used to easily chroma-key out in screenshots or video. They can only be obtained in creative or with commands.
+Adds various brightly-coloured and glowing nodes intended to be used to easily chroma-key out in screenshots or video. They can only be obtained in creative or with commands.
 
 For best results, disable antialiasing!
 
-This is a fork of the old [`greenscreen`](https://content.minetest.net/packages/Glory/greenscreen/) mod by Glory with various improvements added to it.
+This is a fork of the old [`greenscreen`](https://content.minetest.net/packages/Glory/greenscreen/) mod by Glory with various improvements added to it, but both are fully compatible with eachother.
 
 ## Colours
 | Colour |   Hex   |
