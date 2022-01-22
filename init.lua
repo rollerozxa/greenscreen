@@ -15,6 +15,23 @@ greenscreen.colours = {
 	purple 	= "Purple screen (#F0F)",
 }
 
+-- If i3 is installed, compress all the greenscreen nodes into one cell.
+if minetest.global_exists("i3") then
+	greenscreen.compress_colours = {}
+	for colour in pairs(greenscreen.colours) do
+		if colour ~= "green" then
+			table.insert(greenscreen.compress_colours, "greenscreen:"..colour.."screen")
+		end
+	end
+
+	minetest.log(dump(greenscreen.compress_colours))
+
+	i3.compress("greenscreen:greenscreen", {
+		replace = "greenscreen:greenscreen",
+		by = greenscreen.compress_colours
+	})
+end
+
 -- Get node sounds, either from MTG default or from AntumDeluge's sounds mod.
 if minetest.global_exists("default") then
 	greenscreen.sound = default.node_sound_defaults()
