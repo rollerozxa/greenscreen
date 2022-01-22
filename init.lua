@@ -1,5 +1,8 @@
 
-local colours = {
+greenscreen = {}
+
+-- Different colours (itemstring,description)
+greenscreen.colours = {
 	white	= "White screen (#FFF)",
 	grey	= "Grey screen (#888)",
 	black	= "Black screen (#000)",
@@ -12,12 +15,22 @@ local colours = {
 	purple 	= "Purple screen (#F0F)",
 }
 
-for name, description in pairs(colours) do
+-- Get node sounds, either from MTG default or from AntumDeluge's sounds mod.
+if minetest.global_exists("default") then
+	greenscreen.sound = default.node_sound_defaults()
+elseif minetest.global_exists("sounds") then
+	greenscreen.sound = sounds.node()
+else
+	minetest.log("warning", "[greenscreen] No sound mod found (default or sounds), falling back to silent.")
+	greenscreen.sound = nil
+end
+
+for name, description in pairs(greenscreen.colours) do
 	minetest.register_node("greenscreen:"..name.."screen", {
 		description = description,
 		tiles = { "greenscreen_"..name..".png" },
 		light_source = minetest.LIGHT_MAX,
 		groups = { snappy=2, dig_immediate=3, oddly_breakable_by_hand=2 },
-		sounds = default.node_sound_glass_defaults(),
+		sounds = greenscreen.sound,
 	})
 end
