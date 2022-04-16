@@ -3,16 +3,16 @@ greenscreen = {}
 
 -- Different colours (itemstring,description)
 greenscreen.colours = {
-	white	= "White screen (#FFF)",
-	grey	= "Grey screen (#888)",
-	black	= "Black screen (#000)",
-	red		= "Red screen (#F00)",
-	orange	= "Orange screen (#F80)",
-	yellow	= "Yellow screen (#FF0)",
-	green	= "Green screen (#0F0)",
-	cyan	= "Cyan screen (#0FF)",
-	blue	= "Blue screen (#00F)",
-	purple 	= "Purple screen (#F0F)",
+	white	= "#FFF",
+	grey	= "#888",
+	black	= "#000",
+	red		= "#F00",
+	orange	= "#F80",
+	yellow	= "#FF0",
+	green	= "#0F0",
+	cyan	= "#0FF",
+	blue	= "#00F",
+	purple 	= "#F0F",
 }
 
 -- If i3 is installed, compress all the greenscreen nodes into one cell.
@@ -40,12 +40,12 @@ else
 	greenscreen.sound = nil
 end
 
-for name, description in pairs(greenscreen.colours) do
+for name, colour in pairs(greenscreen.colours) do
 	minetest.register_node("greenscreen:"..name.."screen", {
-		description = description,
-		tiles = { "greenscreen_"..name..".png" },
+		description = name:sub(1,1):upper()..name:sub(2).." screen ("..colour..")",
+		tiles = { "^[resize:8x8^[colorize:"..colour..":255" },
 		light_source = minetest.LIGHT_MAX,
-		groups = { snappy=2, dig_immediate=3, oddly_breakable_by_hand=2 },
+		groups = { snappy=3, dig_immediate=3, oddly_breakable_by_hand=3 },
 		sounds = greenscreen.sound,
 	})
 end
