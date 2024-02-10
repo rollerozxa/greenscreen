@@ -43,7 +43,7 @@ end
 for name, colour in pairs(greenscreen.colours) do
 	minetest.register_node("greenscreen:"..name.."screen", {
 		description = name:sub(1,1):upper()..name:sub(2).." screen ("..colour..")",
-		tiles = { "^[resize:8x8^[colorize:"..colour..":255" },
+		tiles = { "[combine:4x4^[noalpha^[colorize:"..colour..":255" },
 		light_source = minetest.LIGHT_MAX,
 		groups = { snappy=3, dig_immediate=3, oddly_breakable_by_hand=3 },
 		sounds = greenscreen.sound,
