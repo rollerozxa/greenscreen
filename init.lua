@@ -16,7 +16,7 @@ greenscreen.colours = {
 }
 
 -- If i3 is installed, compress all the greenscreen nodes into one cell.
-if minetest.global_exists("i3") then
+if core.global_exists("i3") then
 	greenscreen.compress_colours = {}
 	for colour in pairs(greenscreen.colours) do
 		if colour ~= "green" then
@@ -31,20 +31,20 @@ if minetest.global_exists("i3") then
 end
 
 -- Get node sounds, either from MTG default or from AntumDeluge's sounds mod.
-if minetest.global_exists("default") then
+if core.global_exists("default") then
 	greenscreen.sound = default.node_sound_defaults()
-elseif minetest.global_exists("sounds") then
+elseif core.global_exists("sounds") then
 	greenscreen.sound = sounds.node()
 else
-	minetest.log("warning", "[greenscreen] No sound mod found (default or sounds), falling back to silent.")
+	core.log("warning", "[greenscreen] No sound mod found (default or sounds), falling back to silent.")
 	greenscreen.sound = nil
 end
 
 for name, colour in pairs(greenscreen.colours) do
-	minetest.register_node("greenscreen:"..name.."screen", {
+	core.register_node("greenscreen:"..name.."screen", {
 		description = name:sub(1,1):upper()..name:sub(2).." screen ("..colour..")",
 		tiles = { "[combine:4x4^[noalpha^[colorize:"..colour..":255" },
-		light_source = minetest.LIGHT_MAX,
+		light_source = core.LIGHT_MAX,
 		groups = { snappy=3, dig_immediate=3, oddly_breakable_by_hand=3 },
 		sounds = greenscreen.sound,
 	})
